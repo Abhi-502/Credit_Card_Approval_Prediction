@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prediction Result</title>
+ 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+ 
+body{
+    background:#f2f2f2;
+}
+ 
+.topbar{
+    background:#1c1c1c;
+    color:#fff;
+    padding:16px 32px;
+    font-size:18px;
+    font-weight:bold;
+}
+ 
+.container{
+    width:90%;
+    max-width:600px;
+    margin:50px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+ 
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    color:#222;
+}
+ 
+.result-box{
+    padding:30px;
+    border-radius:10px;
+    margin-bottom:30px;
+    font-size:24px;
+    font-weight:bold;
+}
+ 
+.approved{
+    background:#d4edda;
+    border:2px solid #28a745;
+    color:#155724;
+}
+ 
+.rejected{
+    background:#f8d7da;
+    border:2px solid #dc3545;
+    color:#721c24;
+}
+ 
+.back-btn{
+    display:inline-block;
+    padding:12px 30px;
+    background:#1565f0;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+    border:none;
+}
+ 
+.back-btn:hover{
+    background:#0d47a1;
+}
+ 
+@media(max-width:600px){
+.result-box{
+    font-size:18px;
+    padding:20px;
+}
+ 
+.container{
+    padding:20px;
+}
+}
+</style>
+ 
+</head>
+ 
+<body>
+ 
+<div class="topbar">
+    SmartBridge
+</div>
+ 
+<div class="container">
+ 
+<h1>Prediction Result</h1>
+ 
+<div class="result-box {% if 'Approved' in prediction_text %}approved{% else %}rejected{% endif %}">
+    {{ prediction_text }}
+</div>
+ 
+<a href="/" class="back-btn">Go Back</a>
+ 
+</div>
+ 
+</body>
+</html>

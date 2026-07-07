@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Credit Card Approval Prediction</title>
+ 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
+}
+ 
+body{
+    background:#f2f2f2;
+}
+ 
+.topbar{
+    background:#1c1c1c;
+    color:#fff;
+    padding:16px 32px;
+    font-size:18px;
+    font-weight:bold;
+}
+ 
+.container{
+    width:90%;
+    max-width:1000px;
+    margin:30px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+ 
+h1{
+    text-align:center;
+    margin-bottom:35px;
+    color:#222;
+}
+ 
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+ 
+.field label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    font-size:13px;
+}
+ 
+.field input,
+.field select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:14px;
+}
+ 
+.predict-btn{
+    width:100%;
+    margin-top:40px;
+    padding:14px;
+    border:none;
+    border-radius:5px;
+    background:#1565f0;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+ 
+.predict-btn:hover{
+    background:#0d47a1;
+}
+ 
+hr{
+    margin-top:35px;
+    margin-bottom:20px;
+}
+ 
+@media(max-width:900px){
+.form-grid{
+grid-template-columns:repeat(2,1fr);
+}
+}
+ 
+@media(max-width:600px){
+.form-grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+ 
+</head>
+ 
+<body>
+ 
+<div class="topbar">
+    SmartBridge
+</div>
+ 
+<div class="container">
+ 
+<h1>Credit Card Approval Prediction</h1>
+ 
+<form action="/predict" method="POST" class="form-grid">
+ 
+<div class="field">
+<label>Gender</label>
+<select name="CODE_GENDER">
+<option value="">Select Gender</option>
+<option value="0">Female</option>
+<option value="1">Male</option>
+</select>
+</div>
+ 
+<div class="field">
+<label>Own Car</label>
+<select name="FLAG_OWN_CAR">
+<option value="">Select</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+</div>
+ 
+<div class="field">
+<label>Own Property</label>
+<select name="FLAG_OWN_REALTY">
+<option value="">Select</option>
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+</div>
+ 
+<div class="field">
+<label>Number of Children</label>
+<input type="number" name="CNT_CHILDREN" placeholder="Enter number of children" min="0" max="5">
+</div>
+ 
+<div class="field">
+<label>Annual Income</label>
+<input type="number" name="AMT_INCOME_TOTAL" placeholder="Enter annual income">
+</div>
+ 
+<div class="field">
+<label>Income Type</label>
+<select name="NAME_INCOME_TYPE">
+<option value="">Select Income Type</option>
+<option value="0">Commercial</option>
+<option value="1">Pensioner</option>
+<option value="2">Working</option>
+</select>
+</div>
+
+<div class="field">
+<label>Education Type</label>
+<select name="NAME_EDUCATION_TYPE">
+<option value="">Select Education</option>
+<option value="0">Higher</option>
+<option value="1">Incomplete Higher</option>
+<option value="2">Secondary</option>
+</select>
+</div>
+
+<div class="field">
+<label>Family Status</label>
+<select name="NAME_FAMILY_STATUS">
+<option value="">Select Status</option>
+<option value="0">Divorced</option>
+<option value="1">Married</option>
+<option value="2">Single</option>
+<option value="3">Widowed</option>
+</select>
+</div>
+
+<div class="field">
+<label>Housing Type</label>
+<select name="NAME_HOUSING_TYPE">
+<option value="">Select Housing</option>
+<option value="0">Apartment</option>
+<option value="1">Co-op</option>
+<option value="2">House</option>
+</select>
+</div>
+ 
+<div class="field">
+<label>Days Employed</label>
+<input type="number" step="any" name="DAYS_EMPLOYED" placeholder="Enter employment days (negative number)">
+</div>
+
+<div class="field">
+<label>Days Birth</label>
+<input type="number" step="any" name="DAYS_BIRTH" placeholder="Enter age in days (negative number)">
+</div>
+ 
+<div class="field">
+<label>Occupation Type</label>
+<select name="OCCUPATION_TYPE">
+<option value="">Select Occupation</option>
+<option value="0">Accountants</option>
+<option value="1">Engineers</option>
+<option value="2">Managers</option>
+<option value="3">Sales</option>
+<option value="4">Unknown</option>
+</select>
+</div>
+ 
+
+ 
+<button type="submit" class="predict-btn" align="center">
+Predict
+</button>
+ 
+</form>
+ 
+</div>
+ 
+</body>
+</html>
